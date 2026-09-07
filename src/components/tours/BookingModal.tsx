@@ -10,8 +10,7 @@ import {
   CheckCircle, 
   ShieldCheck, 
   Send, 
-  MessageCircle,
-  Sparkles
+  MessageCircle
 } from "lucide-react";
 
 interface BookingModalProps {
@@ -85,11 +84,6 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
           >
             <X className="w-4 h-4 shrink-0" />
           </button>
-
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-emerald-900/60 border border-emerald-700/50 text-emerald-300 text-[11px] font-bold uppercase tracking-wider mb-2">
-            <Sparkles className="w-3 h-3 shrink-0" />
-            <span>{tour.badge || "EXPEDITION RESERVATION"}</span>
-          </div>
 
           <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white pr-8">
             {tour.title}

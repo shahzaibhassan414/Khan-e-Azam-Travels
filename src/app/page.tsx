@@ -12,7 +12,7 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import TourCard from "@/components/tours/TourCard";
 import BookingModal from "@/components/tours/BookingModal";
 import { 
-  Sparkles, 
+  Compass,
   ArrowRight, 
   CheckCircle2, 
   ChevronDown, 
@@ -53,12 +53,6 @@ export default function HomePage() {
 
         {/* Hero Main Content */}
         <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center w-full my-auto py-4 sm:py-8">
-          {/* Main Headline Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-emerald-500/40 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm animate-fade-in">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-            <span>Pakistan&apos;s Premier Luxury Travel Agency</span>
-          </div>
-
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.15] mb-3 sm:mb-4 max-w-4xl">
             Where Royal Expeditions <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
@@ -83,7 +77,7 @@ export default function HomePage() {
               href="/craft-your-tour"
               className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-5 sm:px-8 py-3 sm:py-3.5 rounded-xl sm:rounded-full bg-slate-900/80 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm uppercase tracking-wider backdrop-blur-md border border-slate-700 shadow-md transition-all duration-200 active:scale-95"
             >
-              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 shrink-0" />
+              <Compass className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 shrink-0" />
               <span>Custom Trip</span>
             </Link>
           </div>
@@ -126,10 +120,6 @@ export default function HomePage() {
           {/* Header & Tabs */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-5">
             <div>
-              <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase mb-2 border border-emerald-200/70">
-                <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Weekly Guaranteed Departures</span>
-              </div>
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-2">
                 Featured Tour Packages
               </h2>
@@ -195,9 +185,6 @@ export default function HomePage() {
       <section className="py-16 sm:py-20 bg-slate-900 text-white relative overflow-hidden border-y border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="max-w-2xl text-center lg:text-left">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 block mb-2">
-              Tailor-Made Royal Service
-            </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
               Planning a Private Trip for Family, Friends or Office?
             </h2>
@@ -249,10 +236,6 @@ export default function HomePage() {
       <section className="py-16 sm:py-24 bg-[#f8fafc]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-12">
-            <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase mb-2 border border-emerald-200/70">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Clear & Transparent</span>
-            </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               Frequently Asked Questions
             </h2>

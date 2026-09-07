@@ -31,10 +31,6 @@ export default function ActivityHighlights() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 bg-emerald-950/80 text-emerald-400 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase mb-3.5 border border-emerald-800/60">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Signature Royal Touches</span>
-          </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-3 sm:mb-4">
             More Than Just A Sightseeing Tour
           </h2>

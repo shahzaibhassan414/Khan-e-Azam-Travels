@@ -7,7 +7,6 @@ import { config, TourPackage } from "@/config";
 import TourCard from "@/components/tours/TourCard";
 import BookingModal from "@/components/tours/BookingModal";
 import { 
-  Sparkles, 
   ShieldCheck, 
   Clock, 
   Send,
@@ -37,10 +36,6 @@ export default function ByAirPage() {
 
         <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-900/60 border border-emerald-700/50 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-              <span>VIP Aerial Mountain Escapes</span>
-            </div>
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-3 sm:mb-4">
               By Air Royal Escapes
             </h1>
@@ -68,8 +63,7 @@ export default function ByAirPage() {
 
           {/* Value Props Card */}
           <div className="bg-slate-900/90 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4 shadow-xl">
-            <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-emerald-400" />
+            <h3 className="text-lg font-bold text-white mb-2">
               The Khan e Azam By-Air Privilege
             </h3>
             <div className="flex items-start gap-3">
@@ -100,10 +94,6 @@ export default function ByAirPage() {
       {/* Tour Packages Showcase */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase mb-2 border border-emerald-200/70">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Luxury By-Air Catalog</span>
-          </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
             Featured By-Air Packages
           </h2>

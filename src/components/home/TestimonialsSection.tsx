@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { config } from "@/config";
-import { Star, Quote, ChevronLeft, ChevronRight, CheckCircle, Sparkles } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight, CheckCircle } from "lucide-react";
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -86,11 +86,6 @@ export default function TestimonialsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase mb-3.5 border border-emerald-200/70">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Traveler Praise & Stories</span>
-          </div>
-
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3 sm:mb-4">
             What Our Travelers Say
           </h2>
