@@ -565,6 +565,22 @@ export const config: SiteConfig = {
       avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80",
       content: "The By-Air luxury trip was seamless from start to finish. Stays at Serena Forts, private Prado, zero hassle, and breathtaking sights. Khan e Azam Travel & Tours is Pakistan's finest travel company without a doubt!",
     },
+    {
+      name: "Hamza Bilal & Family",
+      role: "Family Vacation (Faisalabad)",
+      trip: "5 Days Hunza & Passu Cones",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      content: "Traveled with my elderly parents and kids. The hospitality, comfortable seating in the Grand Cabin, and top-tier hotel selections made it totally stress-free. 10/10 recommended for families!",
+    },
+    {
+      name: "Zainab Usman",
+      role: "Adventure Squad (Lahore)",
+      trip: "4 Days Kumrat Valley & Katora Lake",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
+      content: "The trek to Katora Lake with Khan e Azam captains was exhilarating and well guided. Evening live BBQ and acoustic jamming by the river was unforgettable!",
+    },
   ],
   faqs: [
     {
@@ -581,7 +597,7 @@ export const config: SiteConfig = {
     },
     {
       q: "How can I book a custom private trip with my friends/family?",
-      a: "You can use our interactive 'Craft Your Tour' page or message us directly on WhatsApp (+92 300 1234567). We design custom itineraries according to your dates, group size, vehicle preference (Prado, Hiace, Coaster), and hotel tier.",
+      a: "You can use our interactive 'Craft Your Tour' page or message us directly on WhatsApp (+92 320 4127966). We design custom itineraries according to your dates, group size, vehicle preference (Prado, Hiace, Coaster), and hotel tier.",
     },
     {
       q: "What is the booking and payment process?",

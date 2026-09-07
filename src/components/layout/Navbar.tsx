@@ -98,8 +98,8 @@ export default function Navbar() {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-white shadow-sm shrink-0 border border-slate-200">
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+            <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden shadow-sm shrink-0">
               <Image
                 src="/images/logo.svg"
                 alt="Khan e Azam Travel & Tours Logo"
@@ -109,12 +109,12 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className={`text-lg sm:text-xl font-extrabold tracking-tight leading-none ${
+              <span className={`text-base sm:text-xl font-extrabold tracking-tight leading-none ${
                 isScrolled ? "text-slate-900" : "text-white"
               }`}>
-                Khan e Azam <span className="text-emerald-700">Travels</span>
+                Khan e Azam <span className={isScrolled ? "text-emerald-700" : "text-emerald-400"}>Travels</span>
               </span>
-              <span className={`text-[10px] tracking-wider uppercase font-semibold mt-0.5 ${
+              <span className={`text-[9px] sm:text-[10px] tracking-wider uppercase font-semibold mt-0.5 ${
                 isScrolled ? "text-slate-500" : "text-slate-300"
               }`}>
                 Travel & Tourism
@@ -169,24 +169,18 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Right Controls */}
-          <div className="flex lg:hidden items-center gap-2">
-            <Link
-              href={config.whatsappLink}
-              target="_blank"
-              className="bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-1"
-            >
-              <MessageCircle className="w-3.5 h-3.5" />
-              <span>Inquire</span>
-            </Link>
+          {/* Mobile Menu Button */}
+          <div className="flex lg:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className={`p-2 rounded-lg transition-colors ${
-                isScrolled ? "text-slate-800 hover:bg-slate-100" : "text-white hover:bg-white/10"
+              className={`p-2.5 rounded-xl transition-all flex items-center justify-center ${
+                isScrolled 
+                  ? "text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200" 
+                  : "text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md"
               }`}
               aria-label="Open mobile menu"
             >
-              <Menu className="w-6 h-6 shrink-0" />
+              <Menu className="w-5 h-5 shrink-0" />
             </button>
           </div>
         </div>
