@@ -8,11 +8,10 @@ import { Star, Quote, CheckCircle } from "lucide-react";
 export default function TestimonialsSection() {
   const [isPaused, setIsPaused] = useState(false);
 
-  // Duplicate testimonials for seamless 100% loop
+  // Exactly 2 sets for mathematically seamless 0% -> -50% marquee loop
   const duplicatedTestimonials = [
     ...config.testimonials,
     ...config.testimonials,
-    ...config.testimonials
   ];
 
   return (
@@ -23,7 +22,7 @@ export default function TestimonialsSection() {
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-10 sm:mb-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-8 sm:mb-12">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3 sm:mb-4">
@@ -47,10 +46,10 @@ export default function TestimonialsSection() {
         </div>
       </div>
 
-      {/* Infinite Auto-Scrolling Continuous Track */}
-      <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+      {/* Infinite Auto-Scrolling Track (No clipping masks on mobile, ample vertical padding) */}
+      <div className="relative w-full overflow-hidden py-4 sm:py-6">
         <div 
-          className="flex gap-5 sm:gap-6 w-max animate-marquee py-2"
+          className="flex gap-4 sm:gap-6 w-max animate-marquee px-4"
           style={{
             animationPlayState: isPaused ? "paused" : "running",
           }}
@@ -58,22 +57,17 @@ export default function TestimonialsSection() {
           {duplicatedTestimonials.map((item, idx) => (
             <div
               key={idx}
-              className="w-[290px] sm:w-[380px] shrink-0 bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-lg hover:border-emerald-600/40 transition-all duration-300 flex flex-col justify-between relative group select-none"
+              className="w-[300px] sm:w-[380px] shrink-0 bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-lg hover:border-emerald-600/40 transition-all duration-300 flex flex-col justify-between relative group select-none"
             >
-              {/* Quote Badge */}
-              <div className="absolute -top-3 right-5 w-8 h-8 rounded-lg bg-slate-900 text-emerald-400 flex items-center justify-center shadow-sm">
-                <Quote className="w-3.5 h-3.5 fill-emerald-400" />
-              </div>
-
+              {/* Header with Star Rating & Trip Tag */}
               <div>
-                {/* Star Rating & Trip Tag */}
                 <div className="flex items-center justify-between gap-2 mb-3.5">
                   <div className="flex items-center gap-1 text-emerald-600">
                     {[...Array(item.rating || 5)].map((_, i) => (
                       <Star key={i} className="w-3.5 h-3.5 fill-emerald-600" />
                     ))}
                   </div>
-                  <span className="text-[10px] sm:text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/70 px-2.5 py-0.5 rounded-md truncate max-w-[160px]">
+                  <span className="text-[10px] sm:text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/70 px-2.5 py-0.5 rounded-md truncate max-w-[170px]">
                     {item.trip.split("—")[0].trim()}
                   </span>
                 </div>
@@ -84,24 +78,30 @@ export default function TestimonialsSection() {
                 </p>
               </div>
 
-              {/* Author Profile */}
-              <div className="pt-3.5 border-t border-slate-100 flex items-center gap-3 mt-auto">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-slate-200 shrink-0 bg-slate-100">
-                  <Image
-                    src={item.avatar}
-                    alt={item.name}
-                    fill
-                    className="object-cover"
-                  />
+              {/* Author Profile & Quote Icon */}
+              <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between gap-3 mt-auto">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden border border-slate-200 shrink-0 bg-slate-100">
+                    <Image
+                      src={item.avatar}
+                      alt={item.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5 truncate">
+                      {item.name}
+                      <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    </h4>
+                    <p className="text-[11px] text-slate-500 font-medium truncate">
+                      {item.role}
+                    </p>
+                  </div>
                 </div>
-                <div className="min-w-0 flex-1">
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5 truncate">
-                    {item.name}
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  </h4>
-                  <p className="text-[11px] text-slate-500 font-medium truncate">
-                    {item.role}
-                  </p>
+
+                <div className="w-7 h-7 rounded-lg bg-slate-900 text-emerald-400 flex items-center justify-center shrink-0">
+                  <Quote className="w-3 h-3 fill-emerald-400" />
                 </div>
               </div>
             </div>
