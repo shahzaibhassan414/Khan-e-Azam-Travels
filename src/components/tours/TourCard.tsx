@@ -115,9 +115,9 @@ export default function TourCard({ tour, onBookNow }: TourCardProps) {
           <div className="flex items-center gap-2">
             <button
               onClick={() => onBookNow(tour)}
-              className="px-4 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs sm:text-sm shadow-sm transition-all flex items-center gap-1.5 active:scale-95"
+              className="px-4 py-2.5 sm:py-2 rounded-xl sm:rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs sm:text-sm shadow-sm transition-all flex items-center gap-1.5 active:scale-95 min-h-[40px]"
             >
-              <MessageCircle className="w-3.5 h-3.5" />
+              <MessageCircle className="w-3.5 h-3.5 shrink-0" />
               <span>Inquire & Book</span>
             </button>
           </div>

@@ -66,7 +66,7 @@ function PackagesContent() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Controls & Filter Bar */}
         <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-slate-200/90 mb-8 space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-center">
             {/* Live Search Input */}
             <div className="md:col-span-5 relative">
               <input
@@ -74,9 +74,9 @@ function PackagesContent() {
                 placeholder="Search by expedition, valley, or activity..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-xs sm:text-sm font-medium text-slate-800"
+                className="w-full pl-10 pr-4 py-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-base sm:text-sm font-medium text-slate-800"
               />
-              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5 sm:top-4" />
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5 sm:top-3" />
             </div>
 
             {/* Destination Dropdown */}
@@ -84,7 +84,8 @@ function PackagesContent() {
               <select
                 value={selectedDest}
                 onChange={(e) => setSelectedDest(e.target.value)}
-                className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer"
+                aria-label="Filter by destination"
+                className="w-full px-4 py-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-semibold text-slate-800 cursor-pointer"
               >
                 <option value="">All Mountain Destinations</option>
                 <option value="Fairy Meadows">Fairy Meadows & Nanga Parbat</option>
@@ -101,7 +102,8 @@ function PackagesContent() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="w-full px-4 py-2.5 sm:py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer"
+                aria-label="Sort tours"
+                className="w-full px-4 py-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-semibold text-slate-800 cursor-pointer"
               >
                 <option value="featured">Sort: Featured First</option>
                 <option value="duration-desc">Duration: Longest First</option>
@@ -111,7 +113,7 @@ function PackagesContent() {
           </div>
 
           {/* Category Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pt-3 border-t border-slate-100 hide-scrollbar">
+          <div className="flex items-center gap-2 overflow-x-auto pt-3 border-t border-slate-100 hide-scrollbar py-1">
             {[
               { id: "all", label: "All Tours" },
               { id: "group", label: "Group Tours" },
@@ -121,7 +123,7 @@ function PackagesContent() {
               <button
                 key={tab.id}
                 onClick={() => setSelectedCategory(tab.id)}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wide uppercase transition-all whitespace-nowrap ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold tracking-wide uppercase transition-all whitespace-nowrap shrink-0 active:scale-95 ${
                   selectedCategory === tab.id
                     ? "bg-slate-900 text-white shadow-sm"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"

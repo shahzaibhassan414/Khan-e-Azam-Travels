@@ -142,7 +142,7 @@ Please reach out to me!`;
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="px-5 py-2 rounded-xl bg-slate-100 text-slate-800 font-bold text-xs hover:bg-slate-200 transition-colors"
+                    className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 text-slate-800 font-bold text-xs sm:text-sm hover:bg-slate-200 transition-colors"
                   >
                     Send Another Message
                   </button>
@@ -160,7 +160,7 @@ Please reach out to me!`;
                         placeholder="e.g. Shahzaib Khan"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-xs sm:text-sm font-medium text-slate-800"
+                        className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-base sm:text-sm font-medium text-slate-800"
                       />
                     </div>
                     <div>
@@ -173,7 +173,7 @@ Please reach out to me!`;
                         placeholder="e.g. 0320 4127966"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-xs sm:text-sm font-medium text-slate-800"
+                        className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-base sm:text-sm font-medium text-slate-800"
                       />
                     </div>
                   </div>
@@ -185,7 +185,7 @@ Please reach out to me!`;
                     <select
                       value={destination}
                       onChange={(e) => setDestination(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-xs sm:text-sm font-medium text-slate-800 bg-white"
+                      className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-base sm:text-sm font-medium text-slate-800 bg-white"
                     >
                       <option value="Hunza Valley & Passu Cones">Hunza Valley & Passu (5 Days)</option>
                       <option value="Skardu, Deosai & Lakes">Skardu, Deosai & Lakes (6 Days)</option>
@@ -207,13 +207,13 @@ Please reach out to me!`;
                       placeholder="Tell us about your desired travel dates, number of people, or any questions..."
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-xs sm:text-sm font-medium text-slate-800 resize-none"
+                      className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-base sm:text-sm font-medium text-slate-800 resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-sm transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-sm transition-all flex items-center justify-center gap-2 active:scale-95 min-h-[48px]"
                   >
                     <Send className="w-4 h-4 text-emerald-400" />
                     <span>Send Message via WhatsApp</span>

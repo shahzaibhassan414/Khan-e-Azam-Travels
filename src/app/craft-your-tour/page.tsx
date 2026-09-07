@@ -98,7 +98,7 @@ Please provide a custom tailored itinerary and detailed quotation!`;
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-slate-200/90 space-y-6 sm:space-y-8">
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-4 sm:p-8 shadow-sm border border-slate-200/90 space-y-6 sm:space-y-8">
           {/* Step 1: Destination Selection */}
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2.5 flex items-center gap-2">
@@ -113,16 +113,16 @@ Please provide a custom tailored itinerary and detailed quotation!`;
                     key={dest.name}
                     type="button"
                     onClick={() => toggleDestination(dest.name)}
-                    className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between h-20 sm:h-22 ${
+                    className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between min-h-[72px] sm:min-h-[88px] active:scale-[0.98] ${
                       isSelected
                         ? "border-emerald-600 bg-emerald-50/80 text-emerald-900 ring-2 ring-emerald-600/20 shadow-sm"
                         : "border-slate-200 hover:border-slate-300 text-slate-700 bg-slate-50/50 hover:bg-slate-100/60"
                     }`}
                   >
-                    <span className="text-lg sm:text-xl">{dest.icon}</span>
+                    <span className="text-xl sm:text-2xl">{dest.icon}</span>
                     <div className="flex items-center justify-between mt-1">
-                      <span className="text-xs font-semibold leading-tight truncate pr-1">{dest.name}</span>
-                      {isSelected && <Check className="w-3.5 h-3.5 text-emerald-700 shrink-0 font-bold" />}
+                      <span className="text-xs sm:text-sm font-semibold leading-tight truncate pr-1">{dest.name}</span>
+                      {isSelected && <Check className="w-4 h-4 text-emerald-700 shrink-0 font-bold" />}
                     </div>
                   </button>
                 );
@@ -131,16 +131,16 @@ Please provide a custom tailored itinerary and detailed quotation!`;
           </div>
 
           {/* Step 2: Trip Type & Duration */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2 flex items-center gap-2">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-1.5 flex items-center gap-2">
                 <span className="w-5 h-5 rounded-md bg-emerald-700 text-white flex items-center justify-center text-xs font-bold shrink-0">2</span>
                 <span>Trip Category</span>
               </label>
               <select
                 value={tripType}
                 onChange={(e) => setTripType(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-xs sm:text-sm font-semibold text-slate-800 bg-white"
+                className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-base sm:text-sm font-semibold text-slate-800 bg-white"
               >
                 <option value="Family Vacation">Family Vacation (Relaxed & Kids Friendly)</option>
                 <option value="Honeymoon / Couple Escape">Honeymoon & Couple Escape</option>
@@ -151,19 +151,21 @@ Please provide a custom tailored itinerary and detailed quotation!`;
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2 flex items-center justify-between">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-1.5 flex items-center justify-between">
                 <span>Trip Duration</span>
                 <span className="text-emerald-700 font-bold">{tripDuration} Days / {tripDuration - 1} Nights</span>
               </label>
-              <input
-                type="range"
-                min={2}
-                max={14}
-                value={tripDuration}
-                onChange={(e) => setTripDuration(Number(e.target.value))}
-                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-700"
-              />
-              <div className="flex justify-between text-[10px] text-slate-500 font-medium mt-1">
+              <div className="py-2">
+                <input
+                  type="range"
+                  min={2}
+                  max={14}
+                  value={tripDuration}
+                  onChange={(e) => setTripDuration(Number(e.target.value))}
+                  className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-700"
+                />
+              </div>
+              <div className="flex justify-between text-[11px] text-slate-500 font-medium">
                 <span>2 Days (Weekend)</span>
                 <span>7 Days (Classic)</span>
                 <span>14 Days (Grand)</span>
@@ -172,9 +174,9 @@ Please provide a custom tailored itinerary and detailed quotation!`;
           </div>
 
           {/* Step 3: Travel Style & Vehicle */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2 flex items-center gap-2">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-1.5 flex items-center gap-2">
                 <span className="w-5 h-5 rounded-md bg-emerald-700 text-white flex items-center justify-center text-xs font-bold shrink-0">3</span>
                 <span>Hotel Tier</span>
               </label>
@@ -188,27 +190,27 @@ Please provide a custom tailored itinerary and detailed quotation!`;
                     key={tier.key}
                     type="button"
                     onClick={() => setTravelStyle(tier.key as any)}
-                    className={`p-2.5 rounded-xl border text-left transition-all ${
+                    className={`p-2.5 sm:p-3 rounded-xl border text-left transition-all min-h-[58px] flex flex-col justify-between active:scale-[0.98] ${
                       travelStyle === tier.key
                         ? "border-emerald-600 bg-emerald-50/80 text-emerald-900 ring-2 ring-emerald-600/20 shadow-sm"
-                        : "border-slate-200 text-slate-600 hover:border-slate-300"
+                        : "border-slate-200 text-slate-600 hover:border-slate-300 bg-slate-50/50"
                     }`}
                   >
-                    <div className="text-xs font-bold">{tier.label}</div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">{tier.desc}</div>
+                    <div className="text-xs sm:text-sm font-bold">{tier.label}</div>
+                    <div className="text-[10px] sm:text-[11px] text-slate-500">{tier.desc}</div>
                   </button>
                 ))}
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-800 mb-1.5">
                 Preferred Vehicle
               </label>
               <select
                 value={vehicle}
                 onChange={(e) => setVehicle(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-xs sm:text-sm font-semibold text-slate-800 bg-white"
+                className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-base sm:text-sm font-semibold text-slate-800 bg-white"
               >
                 <option value="Toyota Prado 4x4 TX/TZ (4-5 Pax)">Toyota Prado 4x4 TX/TZ (4-5 Pax)</option>
                 <option value="Toyota Land Cruiser V8 (3-4 Pax)">Toyota Land Cruiser V8 (3-4 Pax)</option>
@@ -233,7 +235,7 @@ Please provide a custom tailored itinerary and detailed quotation!`;
                 max={100}
                 value={travelersCount}
                 onChange={(e) => setTravelersCount(Number(e.target.value))}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-semibold text-slate-800"
+                className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-semibold text-slate-800"
               />
             </div>
 
@@ -244,7 +246,7 @@ Please provide a custom tailored itinerary and detailed quotation!`;
               <select
                 value={departureCity}
                 onChange={(e) => setDepartureCity(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-medium bg-white"
+                className="w-full px-3 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-medium bg-white"
               >
                 <option value="Lahore">Lahore (LHE)</option>
                 <option value="Islamabad">Islamabad (ISB)</option>
@@ -264,7 +266,7 @@ Please provide a custom tailored itinerary and detailed quotation!`;
                 placeholder="e.g. Next month / Flexible"
                 value={tentativeDate}
                 onChange={(e) => setTentativeDate(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-medium"
+                className="w-full px-3 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-medium"
               />
             </div>
           </div>
@@ -281,7 +283,7 @@ Please provide a custom tailored itinerary and detailed quotation!`;
                 placeholder="Your Full Name *"
                 value={leadName}
                 onChange={(e) => setLeadName(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-medium"
+                className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-medium"
               />
               <input
                 type="tel"
@@ -289,21 +291,21 @@ Please provide a custom tailored itinerary and detailed quotation!`;
                 placeholder="WhatsApp Number * (0320 4127966)"
                 value={leadWhatsapp}
                 onChange={(e) => setLeadWhatsapp(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-medium"
+                className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-medium"
               />
             </div>
             <textarea
-              rows={2}
+              rows={3}
               placeholder="Special requirements (e.g., Honeymoon decor, Bonfire BBQ, Attabad Boating, Drone footage, English guide)"
               value={specialNotes}
               onChange={(e) => setSpecialNotes(e.target.value)}
-              className="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-medium"
+              className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-medium"
             />
           </div>
 
           {/* WhatsApp Submission (No Pricing) */}
           <div className="bg-slate-900 text-white p-5 sm:p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 shadow-md border border-slate-800">
-            <div className="text-center sm:text-left">
+            <div className="text-center sm:text-left w-full sm:w-auto">
               <span className="text-xs text-emerald-400 font-bold uppercase tracking-wider">Custom Tour Request</span>
               <div className="text-lg sm:text-xl font-bold text-white mt-0.5">
                 {travelersCount} Traveler(s) • {tripDuration} Days
@@ -315,7 +317,7 @@ Please provide a custom tailored itinerary and detailed quotation!`;
 
             <button
               type="submit"
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center justify-center gap-2 active:scale-95 whitespace-nowrap"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm shadow-sm transition-all flex items-center justify-center gap-2 active:scale-95 whitespace-nowrap min-h-[48px]"
             >
               <MessageCircle className="w-4 h-4 shrink-0" />
               <span>Get Custom Quote on WhatsApp</span>

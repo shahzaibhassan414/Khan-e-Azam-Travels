@@ -173,7 +173,7 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className={`p-2.5 rounded-xl transition-all flex items-center justify-center ${
+              className={`p-2.5 rounded-xl transition-all flex items-center justify-center active:scale-95 min-w-[44px] min-h-[44px] ${
                 isScrolled 
                   ? "text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200" 
                   : "text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md"
@@ -188,21 +188,26 @@ export default function Navbar() {
 
       {/* Full-Screen Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-slate-950 text-white flex flex-col justify-between p-6 animate-fade-in overflow-y-auto">
+        <div className="lg:hidden fixed inset-0 z-50 bg-slate-950 text-white flex flex-col justify-between p-5 sm:p-6 animate-fade-in overflow-y-auto overscroll-contain">
           {/* Mobile Drawer Header */}
           <div>
-            <div className="flex items-center justify-between pb-6 border-b border-slate-800">
+            <div className="flex items-center justify-between pb-5 border-b border-slate-800">
               <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2.5">
-                <div className="relative w-9 h-9 rounded-full overflow-hidden bg-white p-0.5">
+                <div className="relative w-9 h-9 rounded-full overflow-hidden bg-white p-0.5 shrink-0">
                   <Image src="/images/logo.svg" alt="Khan e Azam Travel & Tours" fill className="object-contain" />
                 </div>
-                <span className="text-lg font-bold text-white">
-                  Khan e Azam <span className="text-emerald-400">Travels</span>
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-base font-extrabold text-white leading-none">
+                    Khan e Azam <span className="text-emerald-400">Travels</span>
+                  </span>
+                  <span className="text-[9px] uppercase font-semibold text-slate-400 mt-0.5">
+                    Lahore Head Office
+                  </span>
+                </div>
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white"
+                className="w-11 h-11 rounded-full bg-slate-800 active:bg-slate-700 flex items-center justify-center text-slate-300 hover:text-white transition-colors"
                 aria-label="Close menu"
               >
                 <X className="w-5 h-5 shrink-0" />
@@ -210,7 +215,7 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Nav Links */}
-            <div className="flex flex-col gap-1.5 pt-6">
+            <div className="flex flex-col gap-1.5 pt-5">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -218,10 +223,10 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center justify-between p-3 rounded-xl font-medium text-base transition-colors ${
+                    className={`flex items-center justify-between p-3.5 rounded-xl font-medium text-base transition-colors min-h-[48px] ${
                       isActive
-                        ? "bg-emerald-900/60 text-emerald-300 font-bold border border-emerald-700/40"
-                        : "text-slate-300 hover:bg-slate-800/80 hover:text-white"
+                        ? "bg-emerald-950/80 text-emerald-300 font-bold border border-emerald-700/50 shadow-sm"
+                        : "text-slate-300 hover:bg-slate-800/80 hover:text-white active:bg-slate-800"
                     }`}
                   >
                     <span>{link.name}</span>
@@ -233,11 +238,11 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Drawer Bottom CTAs */}
-          <div className="pt-6 border-t border-slate-800 flex flex-col gap-3">
+          <div className="pt-5 border-t border-slate-800 flex flex-col gap-3 pb-6">
             <Link
               href="/craft-your-tour"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-sm transition-colors border border-slate-700"
+              className="w-full text-center py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition-colors border border-slate-700 min-h-[46px] flex items-center justify-center"
             >
               Plan Custom Tour
             </Link>
@@ -246,14 +251,18 @@ export default function Navbar() {
               href={config.whatsappLink}
               target="_blank"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-sm shadow-md transition-colors"
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-sm shadow-md transition-colors min-h-[46px]"
             >
               <MessageCircle className="w-4 h-4 shrink-0" />
               <span>Contact on WhatsApp</span>
             </Link>
 
-            <div className="text-center text-xs text-slate-400 mt-1">
-              Call: <a href={`tel:${config.phone}`} className="text-emerald-400 font-semibold">{config.phone}</a>
+            <div className="flex items-center justify-center gap-1.5 text-xs text-slate-400 pt-1">
+              <Phone className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span>Direct Hotline:</span>
+              <a href={`tel:${config.phone}`} className="text-emerald-400 font-bold hover:underline">
+                {config.phone}
+              </a>
             </div>
           </div>
         </div>

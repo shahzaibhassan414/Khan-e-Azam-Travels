@@ -73,22 +73,22 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-sm overflow-y-auto animate-fade-in">
-      <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200 my-auto max-h-[92vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/80 backdrop-blur-sm overflow-y-auto animate-fade-in">
+      <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200 my-auto max-h-[94dvh] sm:max-h-[92vh] flex flex-col">
         {/* Header with Tour Banner */}
-        <div className="relative bg-slate-900 text-white p-5 sm:p-6 shrink-0 border-b border-slate-800">
+        <div className="relative bg-slate-900 text-white p-4 sm:p-6 shrink-0 border-b border-slate-800">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors z-10"
+            className="absolute top-3.5 right-3.5 w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors z-10 active:scale-95"
             aria-label="Close modal"
           >
-            <X className="w-4 h-4 shrink-0" />
+            <X className="w-5 h-5 shrink-0" />
           </button>
 
-          <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white pr-8">
+          <h3 className="text-base sm:text-xl font-bold tracking-tight text-white pr-10 leading-snug">
             {tour.title}
           </h3>
-          <p className="text-xs sm:text-sm text-slate-300 mt-0.5">
+          <p className="text-xs sm:text-sm text-slate-300 mt-1">
             {tour.duration} • All-Inclusive Transport, Hotel & Guide
           </p>
         </div>
@@ -107,7 +107,7 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 w-full max-w-md text-left mb-6 space-y-2">
               <div className="flex justify-between text-xs text-slate-600">
                 <span>Selected Tour:</span>
-                <span className="font-semibold text-slate-900">{tour.title}</span>
+                <span className="font-semibold text-slate-900 text-right truncate max-w-[180px]">{tour.title}</span>
               </div>
               <div className="flex justify-between text-xs text-slate-600">
                 <span>Room Tier:</span>
@@ -128,20 +128,20 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
                 setSubmitted(false);
                 onClose();
               }}
-              className="px-6 py-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs transition-colors"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs sm:text-sm transition-colors"
             >
               Done & Close
             </button>
           </div>
         ) : (
           /* Interactive Booking Form */
-          <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5 overflow-y-auto flex-1">
+          <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5 overflow-y-auto flex-1 overscroll-contain">
             {/* Step 1: Sharing Plan Selector */}
             <div>
               <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-2">
                 1. Select Room / Sharing Preference
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
                 {[
                   { key: "quad", label: "Quad Sharing", sub: "4 in Room" },
                   { key: "triple", label: "Triple Sharing", sub: "3 in Room" },
@@ -152,81 +152,83 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
                     key={plan.key}
                     type="button"
                     onClick={() => setSharingPlan(plan.key as any)}
-                    className={`p-2.5 rounded-xl border text-left transition-all ${
+                    className={`p-3 rounded-xl border text-left transition-all min-h-[64px] flex flex-col justify-between ${
                       sharingPlan === plan.key
                         ? "border-emerald-600 bg-emerald-50/80 text-emerald-900 ring-2 ring-emerald-600/20 shadow-sm"
-                        : "border-slate-200 hover:border-slate-300 text-slate-700 bg-slate-50/50"
+                        : "border-slate-200 hover:border-slate-300 text-slate-700 bg-slate-50/50 active:bg-slate-100"
                     }`}
                   >
-                    <div className="text-xs font-bold leading-tight">{plan.label}</div>
-                    <div className="text-[10px] text-slate-500 mt-0.5">{plan.sub}</div>
+                    <div className="text-xs sm:text-sm font-bold leading-tight">{plan.label}</div>
+                    <div className="text-[10px] sm:text-[11px] text-slate-500 mt-1">{plan.sub}</div>
                   </button>
                 ))}
               </div>
             </div>
 
             {/* Step 2: Departure Date & City */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                   2. Departure Date
                 </label>
                 <div className="relative">
                   <select
                     value={selectedDate}
                     onChange={(e) => setSelectedDate(e.target.value)}
-                    className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-semibold text-slate-800 bg-white"
+                    className="w-full pl-9 pr-3 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-semibold text-slate-800 bg-white"
                   >
                     {tour.upcomingDates.map((date) => (
                       <option key={date} value={date}>{date}</option>
                     ))}
                   </select>
-                  <Calendar className="w-4 h-4 text-slate-400 absolute left-3 top-3 shrink-0" />
+                  <Calendar className="w-4 h-4 text-slate-400 absolute left-3 top-3.5 sm:top-3 shrink-0" />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                   Departure City
                 </label>
                 <div className="relative">
                   <select
                     value={departureCity}
                     onChange={(e) => setDepartureCity(e.target.value)}
-                    className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-semibold text-slate-800 bg-white"
+                    className="w-full pl-9 pr-3 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-semibold text-slate-800 bg-white"
                   >
                     <option value="Lahore">Lahore (Thokar / Kalma Chowk)</option>
                     <option value="Islamabad">Islamabad (Daewoo Terminal)</option>
                     <option value="Custom Location">Custom Pickup (Private Tour)</option>
                   </select>
-                  <MapPin className="w-4 h-4 text-slate-400 absolute left-3 top-3 shrink-0" />
+                  <MapPin className="w-4 h-4 text-slate-400 absolute left-3 top-3.5 sm:top-3 shrink-0" />
                 </div>
               </div>
             </div>
 
             {/* Step 3: Number of Guests */}
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                 3. Total Travelers / Seats
               </label>
-              <div className="flex items-center gap-3 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-                <Users className="w-4 h-4 text-slate-500 ml-2 shrink-0" />
+              <div className="flex items-center gap-3 bg-slate-50 p-3 sm:p-2.5 rounded-xl border border-slate-200">
+                <Users className="w-4 h-4 text-slate-500 ml-1 shrink-0" />
                 <span className="text-xs sm:text-sm font-medium text-slate-700 flex-1">Number of Seats Needed:</span>
                 <div className="flex items-center gap-2 sm:gap-3">
                   <button
                     type="button"
                     onClick={() => setGuestsCount(Math.max(1, guestsCount - 1))}
-                    className="w-8 h-8 rounded-lg bg-white border border-slate-300 font-bold text-slate-700 hover:bg-slate-100 flex items-center justify-center text-sm"
+                    className="w-10 h-10 sm:w-8 sm:h-8 rounded-xl sm:rounded-lg bg-white border border-slate-300 font-bold text-slate-700 hover:bg-slate-100 flex items-center justify-center text-base sm:text-sm active:bg-slate-200"
+                    aria-label="Decrease guest count"
                   >
                     -
                   </button>
-                  <span className="font-bold text-sm sm:text-base text-slate-900 w-6 text-center">
+                  <span className="font-bold text-base sm:text-base text-slate-900 w-7 text-center">
                     {guestsCount}
                   </span>
                   <button
                     type="button"
                     onClick={() => setGuestsCount(guestsCount + 1)}
-                    className="w-8 h-8 rounded-lg bg-white border border-slate-300 font-bold text-slate-700 hover:bg-slate-100 flex items-center justify-center text-sm"
+                    className="w-10 h-10 sm:w-8 sm:h-8 rounded-xl sm:rounded-lg bg-white border border-slate-300 font-bold text-slate-700 hover:bg-slate-100 flex items-center justify-center text-base sm:text-sm active:bg-slate-200"
+                    aria-label="Increase guest count"
                   >
                     +
                   </button>
@@ -247,7 +249,7 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
                   placeholder="Full Name *"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-medium"
+                  className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-medium"
                 />
                 <input
                   type="tel"
@@ -255,15 +257,15 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
                   placeholder="WhatsApp Number * (0320 4127966)"
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-medium"
+                  className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-medium"
                 />
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
                 <select
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-medium bg-white"
+                  className="w-full px-3 py-3 sm:py-2 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-medium bg-white"
                 >
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
@@ -273,7 +275,7 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
                 <select
                   value={joiningAs}
                   onChange={(e) => setJoiningAs(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-medium bg-white"
+                  className="w-full px-3 py-3 sm:py-2 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-medium bg-white"
                 >
                   <option value="Solo Traveler">Solo Traveler</option>
                   <option value="With Friends">Friends Squad</option>
@@ -287,7 +289,7 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
                     placeholder="Emergency Contact"
                     value={emergencyContact}
                     onChange={(e) => setEmergencyContact(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-emerald-600 text-xs sm:text-sm font-medium"
+                    className="w-full px-3 py-3 sm:py-2 rounded-xl border border-slate-200 focus:border-emerald-600 text-base sm:text-sm font-medium"
                   />
                 </div>
               </div>
@@ -295,7 +297,7 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
 
             {/* Submit Bar */}
             <div className="bg-slate-900 text-white p-4 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md border border-slate-800">
-              <div className="text-center sm:text-left">
+              <div className="text-center sm:text-left w-full sm:w-auto">
                 <div className="text-xs font-semibold text-emerald-400">Direct WhatsApp Inquiry</div>
                 <div className="text-[11px] text-slate-300">
                   {guestsCount} traveler(s) • {sharingLabels[sharingPlan].split("(")[0].trim()}
@@ -304,14 +306,14 @@ Please confirm seat availability, provide the detailed itinerary quotation, and 
 
               <button
                 type="submit"
-                className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center justify-center gap-2 active:scale-95 whitespace-nowrap"
+                className="w-full sm:w-auto px-5 py-3 sm:py-2.5 rounded-xl sm:rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-sm transition-all flex items-center justify-center gap-2 active:scale-95 whitespace-nowrap min-h-[44px]"
               >
                 <MessageCircle className="w-4 h-4 shrink-0" />
                 <span>Inquire on WhatsApp</span>
               </button>
             </div>
 
-            <div className="flex items-center justify-center gap-1.5 text-[10px] sm:text-xs text-slate-500 pb-1">
+            <div className="flex items-center justify-center gap-1.5 text-[10px] sm:text-xs text-slate-500 pb-1 text-center">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
               <span>Official Tour Confirmation • Custom family & group discounts available</span>
             </div>

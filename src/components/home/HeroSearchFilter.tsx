@@ -31,19 +31,19 @@ export default function HeroSearchFilter() {
       <div className="bg-white p-3 sm:p-3.5 rounded-2xl shadow-xl border border-slate-200 text-slate-900 transition-all duration-300">
         <form onSubmit={handleSearch} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2">
           {/* Destination Select */}
-          <div className="flex-1 bg-slate-50 sm:bg-transparent px-3 py-2 sm:py-1 rounded-xl sm:rounded-none sm:border-r border-slate-200 text-left">
-            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1">
-              <MapPin className="w-3 h-3 text-emerald-600 shrink-0" />
+          <div className="flex-1 bg-slate-50 sm:bg-transparent px-3.5 py-2.5 sm:py-1.5 rounded-xl sm:rounded-none sm:border-r border-slate-200 text-left">
+            <label className="block text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
               <span>Destination</span>
             </label>
-            <div className="relative mt-0.5">
+            <div className="relative mt-1 sm:mt-0.5">
               <select
                 value={destination}
                 onChange={(e) => setDestination(e.target.value)}
                 aria-label="Select destination"
-                className="w-full bg-transparent font-bold text-xs sm:text-sm text-slate-900 focus:outline-none cursor-pointer pr-4 truncate"
+                className="w-full bg-transparent font-bold text-base sm:text-sm text-slate-900 focus:outline-none cursor-pointer pr-4 truncate py-0.5"
               >
-                <option value="">All Destinations</option>
+                <option value="">All Mountain Destinations</option>
                 <option value="Fairy Meadows">Fairy Meadows & Nanga Parbat</option>
                 <option value="Hunza">Hunza Valley & Passu</option>
                 <option value="Skardu">Skardu & Deosai</option>
@@ -56,17 +56,17 @@ export default function HeroSearchFilter() {
           </div>
 
           {/* Travel Style */}
-          <div className="flex-1 bg-slate-50 sm:bg-transparent px-3 py-2 sm:py-1 rounded-xl sm:rounded-none sm:border-r border-slate-200 text-left">
-            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1">
-              <Compass className="w-3 h-3 text-emerald-600 shrink-0" />
+          <div className="flex-1 bg-slate-50 sm:bg-transparent px-3.5 py-2.5 sm:py-1.5 rounded-xl sm:rounded-none sm:border-r border-slate-200 text-left">
+            <label className="block text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+              <Compass className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
               <span>Tour Type</span>
             </label>
-            <div className="relative mt-0.5">
+            <div className="relative mt-1 sm:mt-0.5">
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 aria-label="Select travel style"
-                className="w-full bg-transparent font-bold text-xs sm:text-sm text-slate-900 focus:outline-none cursor-pointer pr-4 truncate"
+                className="w-full bg-transparent font-bold text-base sm:text-sm text-slate-900 focus:outline-none cursor-pointer pr-4 truncate py-0.5"
               >
                 <option value="">All Tour Types</option>
                 <option value="group">Group Tours</option>
@@ -78,17 +78,17 @@ export default function HeroSearchFilter() {
           </div>
 
           {/* Departure City */}
-          <div className="flex-1 bg-slate-50 sm:bg-transparent px-3 py-2 sm:py-1 rounded-xl sm:rounded-none text-left">
-            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1">
-              <Calendar className="w-3 h-3 text-emerald-600 shrink-0" />
+          <div className="flex-1 bg-slate-50 sm:bg-transparent px-3.5 py-2.5 sm:py-1.5 rounded-xl sm:rounded-none text-left">
+            <label className="block text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+              <Calendar className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
               <span>Depart From</span>
             </label>
-            <div className="relative mt-0.5">
+            <div className="relative mt-1 sm:mt-0.5">
               <select
                 value={departureCity}
                 onChange={(e) => setDepartureCity(e.target.value)}
                 aria-label="Select departure city"
-                className="w-full bg-transparent font-bold text-xs sm:text-sm text-slate-900 focus:outline-none cursor-pointer pr-4 truncate"
+                className="w-full bg-transparent font-bold text-base sm:text-sm text-slate-900 focus:outline-none cursor-pointer pr-4 truncate py-0.5"
               >
                 <option value="Lahore">Lahore</option>
                 <option value="Islamabad">Islamabad</option>
@@ -99,10 +99,10 @@ export default function HeroSearchFilter() {
           </div>
 
           {/* Search Action Button */}
-          <div className="shrink-0">
+          <div className="shrink-0 pt-1 sm:pt-0">
             <button
               type="submit"
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs sm:text-sm shadow-sm transition-all duration-200 flex items-center justify-center gap-2 active:scale-95 whitespace-nowrap"
+              className="w-full sm:w-auto px-6 py-3.5 sm:py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm shadow-sm transition-all duration-200 flex items-center justify-center gap-2 active:scale-95 whitespace-nowrap min-h-[44px]"
             >
               <Search className="w-4 h-4 shrink-0" />
               <span>Search Tours</span>
