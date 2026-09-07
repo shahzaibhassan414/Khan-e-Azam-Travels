@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="favMedallion" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#020617" />
+    </radialGradient>
+    <linearGradient id="favRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="60%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+  </defs>
+
+  <!-- Circular Medallion -->
+  <circle cx="32" cy="32" r="30" fill="url(#favMedallion)" />
+  <circle cx="32" cy="32" r="28.5" fill="none" stroke="url(#favRingGrad)" stroke-width="2.5" />
+
+  <!-- Royal Crown on Zenith -->
+  <g transform="translate(32, 12)">
+    <path d="M-8 4 L-6 -1 L-3 1 L0 -3 L3 1 L6 -1 L8 4 Z" fill="#34d399" />
+    <circle cx="-6" cy="-1.5" r="0.8" fill="#ffffff" />
+    <circle cx="0" cy="-3.5" r="1.1" fill="#ffffff" />
+    <circle cx="6" cy="-1.5" r="0.8" fill="#ffffff" />
+  </g>
+
+  <!-- Flanking Peaks -->
+  <polygon points="43,24 53,46 33,46" fill="#0f766e" />
+  <polygon points="43,24 46,29 43,28 41,30 43,24" fill="#ffffff" />
+
+  <polygon points="21,26 11,46 31,46" fill="#065f46" />
+  <polygon points="21,26 23,30 21,29 19,31 21,26" fill="#ffffff" />
+
+  <!-- Primary Majestic Peak -->
+  <polygon points="32,18 16,46 32,46" fill="#047857" />
+  <polygon points="32,18 32,46 48,46" fill="#10b981" />
+
+  <!-- Snow Cap -->
+  <polygon points="32,18 25,29 29,28 32,31 32,18" fill="#ffffff" />
+  <polygon points="32,18 32,31 35,28 39,29 32,18" fill="#e2e8f0" />
+
+  <line x1="32" y1="18" x2="32" y2="46" stroke="#022c22" stroke-width="0.8" />
+
+  <!-- Base Crown Arc -->
+  <path d="M 16 51 Q 32 57 48 51" fill="none" stroke="url(#favRingGrad)" stroke-width="2" stroke-linecap="round" />
+</svg>

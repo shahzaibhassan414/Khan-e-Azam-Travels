@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Rich Slate/Obsidian Background -->
+    <radialGradient id="badgeBg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="65%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </radialGradient>
+
+    <!-- Emerald Border Ring -->
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="35%" stop-color="#10b981" />
+      <stop offset="70%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+
+    <!-- Royal Crown Gradient -->
+    <linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6ee7b7" />
+      <stop offset="50%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+
+    <!-- Mountain Peak Gradients -->
+    <linearGradient id="peakLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <linearGradient id="peakRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <linearGradient id="snowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Circular Outer Medallion -->
+  <circle cx="256" cy="256" r="242" fill="url(#badgeBg)" />
+  <circle cx="256" cy="256" r="236" fill="none" stroke="url(#ringGrad)" stroke-width="7" />
+  <circle cx="256" cy="256" r="224" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.6" />
+
+  <!-- 1. The Royal 5-Point Crown Crest at Summit -->
+  <g transform="translate(256, 112)">
+    <!-- Crown Base & Peaks -->
+    <path d="M-40 18 L-32 -6 L-16 6 L0 -16 L16 6 L32 -6 L40 18 Z" fill="url(#crownGrad)" stroke="#a7f3d0" stroke-width="1" />
+    <!-- Crown Jewels / Pearl Tips -->
+    <circle cx="-32" cy="-7" r="3.5" fill="#ffffff" />
+    <circle cx="-16" cy="5" r="2.5" fill="#ffffff" />
+    <circle cx="0" cy="-17" r="4.5" fill="#ffffff" />
+    <circle cx="16" cy="5" r="2.5" fill="#ffffff" />
+    <circle cx="32" cy="-7" r="3.5" fill="#ffffff" />
+    <!-- Crown Base Band -->
+    <rect x="-38" y="18" width="76" height="5" rx="2.5" fill="#047857" />
+    <circle cx="-24" cy="20.5" r="1.5" fill="#a7f3d0" />
+    <circle cx="0" cy="20.5" r="2" fill="#a7f3d0" />
+    <circle cx="24" cy="20.5" r="1.5" fill="#a7f3d0" />
+  </g>
+
+  <!-- 2. Guiding Compass Star (Top Zenith) -->
+  <g transform="translate(256, 62)">
+    <path d="M0 -22 L4 -6 L20 0 L4 6 L0 22 L-4 6 L-20 0 L-4 -6 Z" fill="#ffffff" />
+    <circle cx="0" cy="0" r="2.5" fill="#059669" />
+  </g>
+
+  <!-- 3. Flanking Mountain Peaks (Left & Right) -->
+  <!-- Left Ridge -->
+  <polygon points="180,185 85,325 270,325" fill="#064e3b" opacity="0.8" />
+  <polygon points="180,185 198,218 184,212 170,226 160,214 180,185" fill="url(#snowGrad)" opacity="0.9" />
+
+  <!-- Right Ridge -->
+  <polygon points="332,180 427,325 242,325" fill="#0f766e" opacity="0.85" />
+  <polygon points="332,180 354,218 336,212 320,226 308,210 332,180" fill="url(#snowGrad)" opacity="0.9" />
+
+  <!-- 4. Majestic Central Mountain Peak (Nanga Parbat / K2) -->
+  <!-- Left Shadow Side -->
+  <polygon points="256,138 126,325 256,325" fill="url(#peakLeft)" />
+  <!-- Right Light Side -->
+  <polygon points="256,138 256,325 386,325" fill="url(#peakRight)" />
+
+  <!-- Snow Cap on Central Summit -->
+  <polygon points="256,138 200,218 224,210 240,224 256,202 256,138" fill="#ffffff" />
+  <polygon points="256,138 256,202 272,222 288,208 312,218 256,138" fill="#e2e8f0" />
+
+  <!-- Central Ridge Line -->
+  <line x1="256" y1="138" x2="256" y2="325" stroke="#022c22" stroke-width="2.5" />
+  <path d="M256 202 L240 224 L246 270 L228 325" stroke="#047857" stroke-width="2" fill="none" opacity="0.6" />
+  <path d="M256 202 L272 222 L266 265 L284 325" stroke="#34d399" stroke-width="2" fill="none" opacity="0.6" />
+
+  <!-- 5. Alpine Silhouette Base -->
+  <g fill="#021f18">
+    <polygon points="152,325 162,298 172,325" />
+    <polygon points="168,325 176,304 184,325" />
+    <polygon points="246,325 256,292 266,325" />
+    <polygon points="328,325 338,300 348,325" />
+    <polygon points="344,325 352,306 360,325" />
+  </g>
+
+  <!-- 6. Bottom Ribbon / Base Arc -->
+  <path d="M 105 360 Q 256 415 407 360" fill="none" stroke="url(#ringGrad)" stroke-width="4.5" stroke-linecap="round" />
+
+  <!-- 7. Typography (Bold Regal Khan e Azam) -->
+  <text x="256" y="380" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="29" font-weight="900" letter-spacing="4" text-anchor="middle">
+    KHAN E AZAM
+  </text>
+  
+  <text x="256" y="412" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" letter-spacing="6" text-anchor="middle">
+    TRAVEL &amp; TOURS
+  </text>
+
+  <!-- 5 Micro Stars at Base (From their original banner) -->
+  <g fill="#34d399" transform="translate(256, 442)">
+    <polygon points="0,-6 1.8,-1.5 6.5,-1.5 2.7,1.5 4.2,6 0,3.2 -4.2,6 -2.7,1.5 -6.5,-1.5 -1.8,-1.5" />
+    <polygon points="-24,-5 -22.5,-1.2 -18.5,-1.2 -21.7,1.2 -20.5,5 -24,2.7 -27.5,5 -26.3,1.2 -29.5,-1.2 -25.5,-1.2" opacity="0.85" />
+    <polygon points="24,-5 25.5,-1.2 29.5,-1.2 26.3,1.2 27.5,5 24,2.7 20.5,5 21.7,1.2 18.5,-1.2 22.5,-1.2" opacity="0.85" />
+    <polygon points="-44,-4 -42.8,-0.8 -39.5,-0.8 -42.2,1.2 -41.2,4.4 -44,2.5 -46.8,4.4 -45.8,1.2 -48.5,-0.8 -45.2,-0.8" opacity="0.65" />
+    <polygon points="44,-4 45.2,-0.8 48.5,-0.8 45.8,1.2 46.8,4.4 44,2.5 41.2,4.4 42.2,1.2 39.5,-0.8 42.8,-0.8" opacity="0.65" />
+  </g>
+</svg>
